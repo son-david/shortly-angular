@@ -1,6 +1,6 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', ['$scope', 'Links', function ($scope, Links) {
+.controller('LinksController', ['$scope', '$location', 'Links', function ($scope, $location, Links) {
   $scope.data = {};
 
   $scope.getLinks = function () {
@@ -9,7 +9,9 @@ angular.module('shortly.links', [])
     });
   };
   $scope.getLinks();
-  // $scope.getLinks = function(){
-  //   return Links;
-  // };
+
+  $scope.goToShorten = function () {
+    //redirect to shorten
+    $location.path('/shorten');
+  };
 }]);
